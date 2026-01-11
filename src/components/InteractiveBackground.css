@@ -17,16 +17,20 @@
     left: -50px;
     width: calc(100% + 100px);
     height: calc(100% + 100px);
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    /* Increased opacity */
-    background-size: 50px 50px;
-    transform: translate(var(--move-x, 0px), var(--move-y, 0px));
+    background-image: url('/structural-reveal.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Opacity set slightly lower so it's not too distracting vs text */
+    opacity: 0.6;
+
+    transform: translate(var(--move-x, 0px), var(--move-y, 0px)) scale(1.1);
+    /* Scale up slightly to avoid edge gaps during parallax */
     transition: transform 0.1s linear;
-    /* Fade out grid at edges */
-    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
-    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+
+    /* The Reveal Mask: Only show this image where the mouse is */
+    -webkit-mask-image: radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 100%);
+    mask-image: radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 100%);
 }
 
 .interactive-spotlight {
@@ -36,8 +40,9 @@
     width: 100%;
     height: 100%;
     will-change: background;
-    /* Boosted visibility with a brighter core */
-    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-            rgba(255, 215, 0, 0.15),
-            transparent 40%);
+    /* Subtle accent glow on top of the revealed image */
+    background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 215, 0, 0.05),
+            transparent 50%);
+    pointer-events: none;
 }
