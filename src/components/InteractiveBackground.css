@@ -1,0 +1,43 @@
+.interactive-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    /* Brought up from -1 */
+    overflow: hidden;
+    pointer-events: none;
+    background-color: #050505;
+}
+
+.interactive-grid {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    /* Increased opacity */
+    background-size: 50px 50px;
+    transform: translate(var(--move-x, 0px), var(--move-y, 0px));
+    transition: transform 0.1s linear;
+    /* Fade out grid at edges */
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+}
+
+.interactive-spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: background;
+    /* Boosted visibility with a brighter core */
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 215, 0, 0.15),
+            transparent 40%);
+}

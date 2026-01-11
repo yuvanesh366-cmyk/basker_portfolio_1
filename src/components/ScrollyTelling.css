@@ -1,0 +1,173 @@
+.scrolly-container {
+    height: 600vh;
+    /* Increased from 400vh to slow down animation and allow reading time */
+    position: relative;
+    background-color: #050505;
+    /* Match frame background */
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.scrolly-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scrolly-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let clicks pass through */
+    z-index: 10;
+}
+
+.scrolly-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.5s ease;
+    color: #e0e0e0;
+    /* Soft White */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    padding: 0 var(--spacing-xl);
+}
+
+.scrolly-text h1 {
+    font-size: 4rem;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--spacing-sm);
+    color: #ffffff;
+}
+
+.scrolly-text h2 {
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #f0f0f0;
+    border-bottom: none;
+    /* Override global style */
+}
+
+.scrolly-sub {
+    font-family: var(--font-family-code);
+    font-size: 1rem;
+    color: #a0a0a0;
+    /* Muted White */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.center {
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.left {
+    left: 10%;
+    text-align: left;
+}
+
+.right {
+    right: 10%;
+    text-align: right;
+}
+
+/* Loading State */
+.scrolly-loading {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #050505;
+    color: #e0e0e0;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #333;
+    border-bottom-color: var(--color-accent);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin-bottom: var(--spacing-md);
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .scrolly-text {
+        padding: 0 var(--spacing-md);
+        width: 100%;
+    }
+
+    .scrolly-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .scrolly-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .scrolly-sub {
+        font-size: 0.85rem;
+    }
+
+    /* Center all text on mobile for better readability */
+    .left,
+    .right {
+        left: 0;
+        right: 0;
+        text-align: center;
+        bottom: 20%;
+        /* Push text up slightly on mobile */
+        top: auto;
+        transform: none;
+    }
+
+    /* Initial title centered normally */
+    .center {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .scrolly-text h1 {
+        font-size: 2rem;
+    }
+
+    .scrolly-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .scrolly-container {
+        height: 600vh;
+        /* Increased for mobile read time */
+    }
+
+    /* Slightly shorter scroll on mobile */
+}
