@@ -19,15 +19,15 @@ I have already configured the project for deployment. Follow these exact steps t
    git commit -m "Initial commit of Basker Portfolio"
    ```
 3. Go to [GitHub.com](https://github.com) and create a **New Repository**.
-   - Name it `basker-portfolio` (this matches the config I set up).
+   - Name it `basker_portfolio_1`.
    - Make it **Public**.
    - **Do not** initialize with README/legacy files.
 
 ## Step 2: Link and Push
-4. Link your local folder to GitHub (replace `<YOUR_USERNAME>` with your actual GitHub username):
+4. Link your local folder to GitHub:
    ```powershell
    git branch -M main
-   git remote add origin https://github.com/<YOUR_USERNAME>/basker-portfolio.git
+   git remote add origin https://github.com/yuvanesh366-cmyk/basker_portfolio_1.git
    git push -u origin main
    ```
 
@@ -42,7 +42,7 @@ I have already configured the project for deployment. Follow these exact steps t
 
 ## Step 4: Verify
 6. Go to your GitHub Repository Settings -> **Pages**.
-7. Your site should be live at: `https://<YOUR_USERNAME>.github.io/basker-portfolio/`
+7. Your site should be live at: `https://yuvanesh366-cmyk.github.io/basker_portfolio_1/`
    *(It may take 1-2 minutes for the first deploy to appear)*.
 
-> **Note**: If you named your repository something other than `basker-portfolio`, you must update the `base: '/basker-portfolio/'` line in `vite.config.js` to match your repository name before running Step 3.
+> **Note**: I have already updated `vite.config.js` to use `base: '/basker_portfolio_1/'` matching your repository.
