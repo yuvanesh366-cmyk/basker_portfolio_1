@@ -29,6 +29,9 @@ const InteractiveBackground = () => {
             <div
                 ref={bgRef}
                 className="interactive-grid"
+                style={{
+                    backgroundImage: `url(${import.meta.env.BASE_URL}structural-reveal.png)`
+                }}
             ></div>
             <div className="interactive-spotlight"></div>
         </div>

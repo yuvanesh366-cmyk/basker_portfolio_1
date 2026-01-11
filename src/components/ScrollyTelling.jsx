@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './ScrollyTelling.css';
 
 const frameCount = 240;
-const getFramePath = (index) => `/frames-1/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
+const getFramePath = (index) => `${import.meta.env.BASE_URL}frames-1/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
 
 const ScrollyTelling = () => {
     const containerRef = useRef(null);
